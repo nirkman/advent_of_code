@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Advent of Code 2022
-# Day 3, Part 1
+# Day 3, Part 2
 
 import time
 from datetime import datetime, timedelta
