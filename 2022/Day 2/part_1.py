@@ -3,7 +3,7 @@
 # Advent of Code 2022
 # Day 2, Part 1
 
-import os, time
+import time
 from datetime import datetime, timedelta
 
 starttime = time.time()
