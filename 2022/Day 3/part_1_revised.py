@@ -7,32 +7,42 @@ import time
 from datetime import datetime, timedelta
 
 starttime = time.time()
-
 file = "input.txt"
-
 total = 0
 
-# CONVERT CHARACTER TO ASCII VALUE
+
+# convert character to ascii value
 def character_to_number(character):
 
-    # LOWERCASE
+    # lowercase
     number = ord(character) - 96
     
     # UPPERCASE
     if number < 0:
         number = number + 58
+        
     return number
 
+
 with open(file) as rucksacks:
+
     for rucksack in rucksacks:
-        #                            slice string beg to half of string length  slice string half of string length to end
-        compartment1, compartment2 = list(rucksack[:len(rucksack)//2].strip()), list(rucksack[len(rucksack)//2:].strip())
+    
+        # remove line endings
+        rucksack = rucksack.strip()
+
+        # slice string from its start to half of its length; convert to set
+        compartment1 = set(rucksack[:len(rucksack)//2]) 
         
-        # convert strings to sets and find intersection - assume single result
-        misplaced_item = list(set(compartment1) & set(compartment2))[0]
+        # slice string from half of its length to its end; convert to set
+        compartment2 = set(rucksack[len(rucksack)//2:])
         
-        # convert misplaced item to number and add to total
-        total = total + character_to_number(misplaced_item)
+        # find intersection of both sets and convert back to list
+        misplaced_items = list(compartment1 & compartment2)
+        
+        # convert misplaced item to number and add to total (assumes a single result)
+        total = total + character_to_number(misplaced_items[0])
+
 
 print("")  
 print("Sum of Priorities: " + str(total))  
