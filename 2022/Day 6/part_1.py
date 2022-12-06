@@ -28,11 +28,6 @@ with open(file) as input:
                     break
                 del buffer[0]
 
-            
-        
-        
-
-
 print("")  
 print("Pointer: " + str(position))  
 print("Total runtime: " + str(round(time.time()-starttime, 3)) + " seconds.")
