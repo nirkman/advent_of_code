@@ -64,15 +64,12 @@ def move_head(direction=None, distance=None):
         i = 1
         while i <= int(distance):
         
-            ''' TRACERS NOT WORKING
-            coordinates = str(knots[len(knots)-1][0]) + "," + str(knots[len(knots)-1][1])
+            coordinates = str(knots[0][0]) + "," + str(knots[0][1])
             if coordinates in positions:
-                grid[head_y][head_x] = tracers
+                grid[knots[0][1]][knots[0][0]] = tracers
             else:
                 grid[knots[0][1]][knots[0][0]] = '.'
-            '''
-            grid[knots[0][1]][knots[0][0]] = '.'
-            
+                        
             if direction == 'U':
                 knots[0][1] -= 1
             elif direction == 'R':
@@ -97,7 +94,13 @@ def move_tail(knot):
     if knot < len(knots):    
         
         if not same(knot):
-            grid[knots[knot][1]][knots[knot][0]] = "."
+            #grid[knots[knot][1]][knots[knot][0]] = "." 
+            
+            coordinates = str(knots[knot][0]) + "," + str(knots[knot][1])
+            if coordinates in positions:
+                grid[knots[knot][1]][knots[knot][0]] = tracers
+            else:
+                grid[knots[knot][1]][knots[knot][0]] = '.'
         
         if not touching(knot):
         
