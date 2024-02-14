@@ -30,7 +30,7 @@ with open(file) as input:
     for line in input:
         line = line.strip(os.linesep)
         
-        #CHEAT: '(?=...)' RegEx lookaheads, via Reddit. Deals with situations like "eightwo"
+        #RESEARCH: '(?=...)' RegEx lookaheads, via Reddit. Deals with situations like "eightwo"
         numbers = re.findall(r'(?=(\d+|one|two|three|four|five|six|seven|eight|nine))', line)
 
         print("")
