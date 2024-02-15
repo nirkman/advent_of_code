@@ -27,11 +27,11 @@ class Schematic:
                     self.look_around()
         
     def look_around(self):
-        #print(str(self.x) + "," + str(self.y) + " -> " + self.data[self.y][self.x])
-        #print(schematic.data[self.y-1][self.x-1],schematic.data[self.y-1][self.x],schematic.data[self.y-1][self.x+1])
-        #print(schematic.data[self.y][self.x-1],schematic.data[self.y][self.x],schematic.data[self.y][self.x+1])
-        #print(schematic.data[self.y+1][self.x-1],schematic.data[self.y+1][self.x],schematic.data[self.y+1][self.x+1])
-        #print("")
+        print(str(self.x) + "," + str(self.y) + " -> " + self.data[self.y][self.x])
+        print(schematic.data[self.y-1][self.x-1],schematic.data[self.y-1][self.x],schematic.data[self.y-1][self.x+1])
+        print(schematic.data[self.y][self.x-1],schematic.data[self.y][self.x],schematic.data[self.y][self.x+1])
+        print(schematic.data[self.y+1][self.x-1],schematic.data[self.y+1][self.x],schematic.data[self.y+1][self.x+1])
+        print("")
         for y in [self.y-1, self.y, self.y+1]:
             for x in [self.x-1, self.x, self.x+1]:
                 if self.data[y][x].isdigit():
@@ -42,7 +42,7 @@ class Schematic:
         value = ''
         x = x-1
         
-        if x > 0 and self.data[y][x].isdigit():
+        if self.data[y][x].isdigit():
             value = str(self.look_back(x, y)) + str(self.data[y][x])
         
         return value
