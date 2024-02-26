@@ -22,14 +22,14 @@ with open(file) as input:
     for line in input:
         line = line.strip()
         if line.startswith("seeds: "):
-            seeds = [int(x) for x in line.replace("seeds: ", "").split(" ")]
+            seeds = map(int, line.replace("seeds: ", "").split(" "))
         elif line == "":
             pass
         elif line.endswith(" map:"):
             name = line.replace(" map:", "")
             mappings[name] = []
         else:
-            destination, source, length = [int(x) for x in line.split(" ")]
+            destination, source, length = map(int, line.split(" "))
             mappings[name].append({
                 'start'       : source,
                 'end'         : source+length,
